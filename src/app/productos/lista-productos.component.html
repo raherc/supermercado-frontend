@@ -1,0 +1,38 @@
+<div class="container">
+    <h3  class="text-center">Productos</h3>
+
+    <div class="container text-center border p-2 rounded" style="margin: 30px">
+    <table class="table align-middle table-striped ">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Categoría</th>
+                <th scope="col">Precio</th>
+                <th scope="col">Cantidad en Stock</th>
+            </tr>
+        </thead>
+        <tbody>
+                <tr *ngFor="let producto  of productos">
+                    <th scope="row">{{producto.id}}</th>
+                    <td>{{producto.nombre}}</td>
+                    <td>{{producto.categoria}}</td>
+                     <td>{{producto.precio}}</td>
+                    <td>{{producto.cantidad}}</td>
+                    <td class="text-center">
+                         <div>
+                            <button (click)="editarProducto(producto.id)" 
+                            class="btn btn-warning btn-sm me-3">Editar</button>
+                            <button (click)="eliminarProducto(producto.id)" 
+                            class="btn btn-danger btn-sm me-3">Eliminar</button>
+                        </div> 
+                    </td>
+                </tr>
+
+            
+
+        </tbody>
+    </table>
+    </div>
+</div>
+

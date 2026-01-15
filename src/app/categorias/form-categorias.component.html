@@ -1,0 +1,29 @@
+<div class="container">
+   <div class="container text-center" style="margin: 30px">
+        <h3> Alta/Modificación Categoria</h3>
+    </div>
+
+
+     <form (ngSubmit)="onSubmit()">
+    
+        <div class="mb-3 col-6">
+            <label for="nombre" class="form-label">Nombre</label>
+            <input type="text" class="form-control" id="nombre" name="nombre" [(ngModel)]="categoria.nombre">
+        </div>
+        <div class="mb-3 col-6">
+            <label for="direccion" class="form-label">Descripción</label>
+            <input type="text" class="form-control" id="direccion" name="direccion" [(ngModel)]="categoria.descripcion">
+        </div>
+         <div class="text-center">
+            <button type="submit" class="btn btn-warning btn-sm me-3">{{ categoria.id ? 'Actualizar ': 'Alta'}}</button>
+            <a [routerLink]="['/categorias']" class="btn btn-danger btn-sm">Regresar</a>
+
+        </div>
+     </form>
+
+
+
+</div>
+
+
+

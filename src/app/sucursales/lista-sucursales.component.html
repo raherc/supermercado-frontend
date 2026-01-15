@@ -1,0 +1,33 @@
+<div class="container">
+
+    <div class="container text-center border p-2 rounded" style="margin: 30px">
+    <table class="table align-middle table-striped ">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Dirección</th>
+            </tr>
+        </thead>
+        <tbody>
+           <!-- < @for(sucursal of sucursales; track sucursal.id){ -->
+                <tr *ngFor="let sucursal  of sucursales">
+                    <th scope="row">{{sucursal.id}}</th>
+                    <td>{{sucursal.nombre}}</td>
+                    <td>{{sucursal.direccion}}</td>
+                    <td class="text-center">
+                        <div>
+                            <button (click)="editarSucursal(sucursal.id)" 
+                            class="btn btn-warning btn-sm me-3">Editar</button>
+                            <button (click)="eliminarSucursal(sucursal.id)" 
+                            class="btn btn-danger btn-sm me-3">Eliminar</button>
+                        </div>
+                    </td>
+                </tr>
+
+            
+
+        </tbody>
+    </table>
+    </div>
+</div>

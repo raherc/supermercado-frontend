@@ -1,0 +1,119 @@
+<div class="container">
+    <div class="container text-center" style="margin: 30px">
+        <h3>Agregar Venta</h3>
+    </div>
+
+<div >
+
+  <!-- Fecha -->
+  <div class="mb-3 col-6">
+    <label class="form-label">Fecha</label>
+    <input type="date" class="form-control"
+           [(ngModel)]="venta.fecha"
+           name="fecha">
+  </div>
+
+  <!-- Estado -->
+  <div class="mb-3 col-6">
+    <label class="form-label">Estado</label>
+    <select class="form-select"
+            [(ngModel)]="venta.estado"
+            name="estado">
+      <option value="CONFIRMADA">Confirmada</option>
+      <option value="PENDIENTE">Pendiente</option>
+      <option value="CANCELADA">Cancelada</option>
+       <option value="ENVIADA">Enviada</option>
+    </select>
+  </div>
+
+  <!-- Sucursal -->
+  <div class="mb-3 col-6">
+    <label class="form-label">Sucursal</label>
+    <select class="form-select"
+            [(ngModel)]="venta.idSucursal"
+            name="idSucursal"
+            required>
+      <option *ngFor="let suc of sucursales" [ngValue]="suc.id">
+        {{ suc.nombre }}
+      </option>
+    </select>
+  </div>
+
+
+  <h5 class="mt-4">Detalle de la venta</h5>
+
+<div class="row align-items-end">
+
+  <!-- Producto -->
+  <div class="col-4">
+    <label class="form-label">Producto</label>
+    <select class="form-select"
+            [(ngModel)]="productoSeleccionado"
+            name="productoSeleccionado">
+      <option [ngValue]="null">-- Selecciona producto --</option>
+      <option *ngFor="let prod of productos" [ngValue]="prod">
+        {{ prod.nombre }}
+      </option>
+    </select>
+  </div>
+
+  <!-- Cantidad -->
+  <div class="col-2">
+    <label class="form-label">Cantidad</label>
+    <input type="number" class="form-control"
+           [(ngModel)]="cantidad"
+           name="cantidad"
+           min="1">
+  </div>
+
+  <!-- Botón añadir -->
+  <div class="col-2">
+    <button type="button"
+            class="btn btn-primary mt-4"
+            (click)="agregarDetalle()"
+            [disabled]="!productoSeleccionado || !cantidad">
+      Añadir
+    </button>
+  </div>
+
+</div>
+<h5 class="mt-4">Detalle de la venta</h5>
+
+<table class="table table-striped mt-2" *ngIf="venta.detalle.length > 0">
+  <thead>
+    <tr>
+      <th>Producto</th>
+      <th>Cantidad</th>
+      <th>Precio unitario</th>
+      <th>Subtotal</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let det of venta.detalle; let i = index">
+      <td>{{ det.nombreProd }}</td>
+      <td>{{ det.cantProd }}</td>
+      <td>{{ det.precio | number:'1.2-2' }}</td>
+      <td>{{ det.subtotal | number:'1.2-2' }}</td>
+      <td>
+        <button type="button" class="btn btn-danger btn-sm"
+                (click)="eliminarDetalle(i)">
+          Eliminar
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+ <div class="text-center">
+            <button type="button" class="btn btn-warning btn-sm me-3" (click)="guardarVenta()">Guardar Venta</button>
+            <button type="button" class="btn btn-primary btn-sm" (click)="irListaVentas()">Cancelar</button>
+
+
+        </div>
+
+
+
+  
+</div>
+

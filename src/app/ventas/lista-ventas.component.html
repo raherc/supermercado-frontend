@@ -1,0 +1,61 @@
+<div class="container">
+
+    <div class="container text-center border p-2 rounded" style="margin: 30px">
+        <table class="table align-middle table-striped ">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Fecha</th>
+                    <th scope="col">Estado</th>
+                    <th scope="col">Sucursal</th>
+                    <th scope="col">Detalles</th>
+                    <th scope="col">Total</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let venta  of ventas">
+                    <th scope="row">{{venta.id}}</th>
+                    <td>{{venta.fecha}}</td>
+                    <td>{{venta.estado}}</td>
+                    <td>{{venta.idSucursal}}</td>
+            
+                    <td>
+                        <table class="table table-sm table-bordered mb-0">
+                            <thead>
+                                <tr>
+                                    <th>Producto</th>
+                                    <th>Cantidad</th>
+                                    <th>Precio unitario</th>
+                                    <th>Subtotal</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let detVenta of venta.detalle">
+                                    <td>{{ detVenta.nombreProd }}</td>
+                                    <td>{{ detVenta.cantProd}}</td>
+                                    <td>{{ detVenta.precio | currency }}</td>
+                                    <td>{{ detVenta.subtotal | currency }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                    <td>{{venta.total}}</td>
+                    <td class="text-center">
+                        <!-- <div>
+                            <button (click)="editarProducto(producto.id)" 
+                            class="btn btn-warning btn-sm me-3">Editar</button>
+                            <button (click)="eliminarProducto(producto.id)" 
+                            class="btn btn-danger btn-sm me-3">Eliminar</button>
+                        </div>  -->
+                        <button (click)="eliminarProducto(venta.id)" 
+                            class="btn btn-danger btn-sm me-3">Eliminar</button>
+                    </td>
+                </tr>
+
+
+
+            </tbody>
+        </table>
+    </div>
+</div>

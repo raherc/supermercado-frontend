@@ -1,0 +1,34 @@
+<div class="container">
+
+    <div class="container text-center border p-2 rounded" style="margin: 30px">
+    <table class="table align-middle table-striped ">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Descripción</th>
+            </tr>
+        </thead>
+        <tbody>
+           <!-- < @for(sucursal of sucursales; track sucursal.id){ -->
+                <tr *ngFor="let categoria  of categorias">
+                    <th scope="row">{{categoria.id}}</th>
+                    <td>{{categoria.nombre}}</td>
+                    <td>{{categoria.descripcion}}</td>
+                    <td class="text-center">
+                        <div>
+                            <button (click)="editarCategoria(categoria.id)" 
+                            class="btn btn-warning btn-sm me-3">Editar</button>
+                            <button (click)="eliminarCategoria(categoria.id)" 
+                            class="btn btn-danger btn-sm me-3">Eliminar</button>
+                        </div>
+                    </td>
+                </tr>
+
+            
+
+        </tbody>
+    </table>
+    </div>
+</div>
+
