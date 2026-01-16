@@ -1,6 +1,6 @@
 # 🛒 Mi App de Gestión de Supermercado
 
-¡Hola! Este es mi proyecto de fin de curso donde estoy aplicando lo que he aprendido de **Angular**. Es una aplicación para gestionar el inventario y las ventas de un supermercado de forma sencilla.
+¡Hola! Este es mi proyecto de aprendizaje donde estoy aplicando lo que he aprendido de **Angular**. Es una aplicación para gestionar el inventario y las ventas de un supermercado de forma sencilla.
 
 ## 🌟 ¿Qué hace esta aplicación?
 
