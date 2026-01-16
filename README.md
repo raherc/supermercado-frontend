@@ -1,59 +1,25 @@
-# SuperFront
+# 🛒 Mi App de Gestión de Supermercado
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.4.
+¡Hola! Este es mi proyecto de fin de curso donde estoy aplicando lo que he aprendido de **Angular**. Es una aplicación para gestionar el inventario y las ventas de un supermercado de forma sencilla.
 
-## Development server
+## 🌟 ¿Qué hace esta aplicación?
 
-To start a local development server, run:
+He construido varias pantallas para que se pueda controlar todo el negocio desde un solo lugar:
 
-```bash
-ng serve
-```
+* **Panel de Inicio (Dashboard):** Es la pantalla principal. Muestra:
+    * **Pedidos Pendientes:** Una lista de las ventas que aún no se han enviado.
+    * **Bajo Stock:** Alerta de productos que se están acabando.
+    * **Lo más vendido:** Un ranking que calcula automáticamente qué productos son los favoritos de los clientes.
+* **Sección de Productos:** Puedo ver el catálogo completo, dar de alta nuevos productos o eliminar los que ya no sirven.
+* **Ventas:** Un historial de todo lo que se ha vendido, con fechas y a qué sucursal pertenece cada venta.
+* **Sucursales y Categorías:** Pantallas para organizar el supermercado y los tipos de productos que vendemos.
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## 🛠️ Herramientas que usé
 
-## Code scaffolding
+Para hacer este proyecto no he querido complicarme con cosas demasiado técnicas, he usado lo que mejor funciona:
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+* **Angular:** Para crear las pantallas y navegar entre ellas.
+* **Bootstrap:** Para que las tablas y los botones queden alineados y se vean bien sin sufrir mucho con el diseño.
+* **TypeScript:** Para manejar la información de las ventas y los productos.
 
-```bash
-ng generate component component-name
-```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
