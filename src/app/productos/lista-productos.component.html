@@ -18,7 +18,12 @@
                     <td>{{producto.nombre}}</td>
                     <td>{{producto.categoria}}</td>
                      <td>{{producto.precio}}</td>
-                    <td>{{producto.cantidad}}</td>
+                    <td>{{producto.cantidad}} 
+                        <span *ngIf="producto.cantidad < 10 && producto.cantidad > 5">⚠️</span>
+                        <span *ngIf="producto.cantidad < 5"> 🟥 </span>
+                   </td>
+                    
+                    
                     <td class="text-center">
                          <div>
                             <button (click)="editarProducto(producto.id)" 

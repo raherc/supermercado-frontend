@@ -29,6 +29,15 @@ export class FormVentasComponent {
   total: 0
 };
 
+// detalle: DetalleVenta = {
+//   id: 0,
+//   nombreProd: '',
+//   idProducto: 0,
+//   cantProd: 0,
+//   precio: 0,
+//   subtotal: 0
+// };  
+
 private sucursalSercicio = inject(SucursalesService);
 private productoServicio = inject(ProductosService);
 private ventaServicio = inject(VentasService);
@@ -75,6 +84,29 @@ agregarDetalle() {
     return;
   }
 
+  //buscamo si producto ya esta en el detalle
+  const detalleExistente = this.venta.detalle.find(d => d.idProducto === this.productoSeleccionado.id);
+  if (detalleExistente) {
+    console.log("dentrooooo Producto ya existe en el detalle");
+    // Si ya existe, actualizamos la cantidad y el subtotal
+    detalleExistente.cantProd += this.cantidad;
+    detalleExistente.subtotal = detalleExistente.cantProd * detalleExistente.precio;
+    this.calcularTotal();
+
+    // Resetear inputs
+    this.productoSeleccionado = null;
+    this.cantidad = null;
+    Swal.fire({
+      icon: 'info',
+      title: 'Producto actualizado',
+      text: 'Unidades añadidas al detalle de la venta.',
+      timer: 1500,
+      showConfirmButton: false
+    });
+    return;
+  }else {
+
+    console.log("elseeeeeeeProducto no existe en el detalle, lo agregamos");  
  const detalle: DetalleVenta = {
     id: 0, // se ignora al crear, el backend lo asignará
     idProducto: this.productoSeleccionado.id,
@@ -83,9 +115,10 @@ agregarDetalle() {
     precio: this.productoSeleccionado.precio,
     subtotal: this.cantidad * this.productoSeleccionado.precio
   };
-
+  console.log("detalle a agregar:", detalle);
   this.venta.detalle.push(detalle);
-
+}
+ 
  
 
   // Resetear inputs
@@ -107,7 +140,15 @@ guardarVenta() {
   }
 
   this.ventaServicio.agregarVenta(this.venta).subscribe({
-    next: (datos) => {
+    next: (datos: any) => {
+      console.log('Venta guardada con éxito:', datos);
+      Swal.fire({
+      icon: 'info',
+      title: 'Venta completada',
+      text: `Identificador de la venta: ${datos.id}`,
+      timer: 1500,
+      showConfirmButton: false
+    });
       this.irListaVentas();
     },
     error: (error) => {

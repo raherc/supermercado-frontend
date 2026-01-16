@@ -7,8 +7,12 @@ import { ListaVentasComponent } from './ventas/lista-ventas.component';
 import { ListaCategoriasComponent } from './categorias/lista-categorias.component';
 import { FormCategoriasComponent } from './categorias/form-categorias.component';
 import { FormVentasComponent } from './ventas/form-ventas.component';
+import { InicioComponent } from './inicio/inicio/inicio.component';
 
 export const routes: Routes = [
+    //Incio
+    {path: '', redirectTo: 'inicio', pathMatch: 'full'},    
+    {path:'inicio', component: InicioComponent},
     //Sucursales
     { path: 'sucursales', component: ListaSucursalesComponent },
     //   { path: '', redirectTo: 'sucursales', pathMatch: 'full' },
