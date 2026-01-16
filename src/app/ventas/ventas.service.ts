@@ -2,12 +2,14 @@ import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Venta } from './venta.model';
+import { environment } from '../../environments/environments.prod';
 
 @Injectable({
   providedIn: 'root'
 })
 export class VentasService {
-  private urlBase= "http://localhost:8086/api/ventas";
+  //private urlBase= "http://localhost:8086/api/ventas";
+  private urlBase = `${environment.apiUrl}/ventas`;
   private clienteHttp = inject(HttpClient);
 
   obtenerVentasLista(): Observable<Venta[]>{

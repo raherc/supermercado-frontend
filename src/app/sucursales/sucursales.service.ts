@@ -2,13 +2,15 @@ import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Sucursal } from './sucursal.model';
+import { environment } from '../../environments/environments';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SucursalesService {
   
-  private urlBase= "http://localhost:8086/api/sucursales";
+  //private urlBase= "http://localhost:8086/api/sucursales";
+  private urlBase = `${environment.apiUrl}/sucursales`;
   private clienteHttp = inject(HttpClient);
 
   obtenerSucursalesLista(): Observable<Sucursal[]>{

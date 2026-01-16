@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { Categoria } from './categoria.model';
 import { Observable } from 'rxjs';
+import { environment } from '../../environments/environments';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,8 @@ import { Observable } from 'rxjs';
 export class CategoriasService {
 
 
-  private urlBase= "http://localhost:8086/api/categorias";
+  //private urlBase= "http://localhost:8086/api/categorias";
+  private urlBase = `${environment.apiUrl}/categorias`;
   private clienteHttp = inject(HttpClient);
 
   obtenerCategoriasLista(): Observable<Categoria[]>{

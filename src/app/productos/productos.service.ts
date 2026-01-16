@@ -2,12 +2,14 @@ import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { Producto } from './producto.model';
 import { Observable } from 'rxjs';
+import { environment } from '../../environments/environments.prod';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductosService {
-  private urlBase= "http://localhost:8086/api/productos";
+  //private urlBase= "http://localhost:8086/api/productos";
+  private urlBase = `${environment.apiUrl}/productos`;
   private clienteHttp = inject(HttpClient);
 
   obtenerProductosLista(): Observable<Producto[]>{
