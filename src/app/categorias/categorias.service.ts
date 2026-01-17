@@ -11,7 +11,8 @@ export class CategoriasService {
 
 
   //private urlBase= "http://localhost:8086/api/categorias";
-  private urlBase = `${environment.apiUrl}/categorias`;
+  //private urlBase = `${environment.apiUrl}/categorias`;
+  private urlBase = 'https://supermercado-backend-1.onrender.com/api/categorias';
   private clienteHttp = inject(HttpClient);
 
   obtenerCategoriasLista(): Observable<Categoria[]>{

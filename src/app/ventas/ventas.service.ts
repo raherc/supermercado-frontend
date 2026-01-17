@@ -9,7 +9,8 @@ import { environment } from '../../environments/environments.prod';
 })
 export class VentasService {
   //private urlBase= "http://localhost:8086/api/ventas";
-  private urlBase = `${environment.apiUrl}/ventas`;
+  //private urlBase = `${environment.apiUrl}/ventas`;
+  private urlBase = 'https://supermercado-backend-1.onrender.com/api/ventas';
   private clienteHttp = inject(HttpClient);
 
   obtenerVentasLista(): Observable<Venta[]>{

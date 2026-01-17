@@ -10,7 +10,8 @@ import { environment } from '../../environments/environments';
 export class SucursalesService {
   
   //private urlBase= "http://localhost:8086/api/sucursales";
-  private urlBase = `${environment.apiUrl}/sucursales`;
+  //private urlBase = `${environment.apiUrl}/sucursales`;
+  private urlBase = 'https://supermercado-backend-1.onrender.com/api/sucursales';
   private clienteHttp = inject(HttpClient);
 
   obtenerSucursalesLista(): Observable<Sucursal[]>{
