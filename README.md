@@ -1,3 +1,6 @@
+Visualizar desde : https://supermercado-frontend-dmyv.onrender.com
+Se debe esperar sobre 1 minuto para que Render despierte la base de datos:
+
 # 🛒 Mi App de Gestión de Supermercado
 
 ¡Hola! Este es mi proyecto de aprendizaje donde estoy aplicando lo que he aprendido de **Angular**. Es una aplicación para gestionar el inventario y las ventas de un supermercado de forma sencilla.
